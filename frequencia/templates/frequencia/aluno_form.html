@@ -1,0 +1,4 @@
+{% extends "frequencia/base.html" %}{% block h1 %}Cadastro de Aluno{% endblock %}
+{% block conteudo %}<form method="post" class="inline">{% csrf_token %}
+<label>Nome <input name="nome"></label><label>Matrícula <input name="matricula"></label>
+<button>Salvar</button></form>{% endblock %}

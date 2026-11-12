@@ -1,0 +1,6 @@
+{% extends "frequencia/base.html" %}{% block h1 %}Consultar Frequência{% endblock %}
+{% block conteudo %}<form method="post" class="inline">{% csrf_token %}<label>Matrícula <input name="matricula"></label><button>Consultar</button></form>
+{% if aluno %}<h2>{{ aluno.nome }}</h2>
+{% if freq.percentual is None %}<p class="situacao">Situação: {{ freq.situacao }}</p>{% else %}
+<p>Total de aulas: {{ freq.total }}</p><p>Presenças: {{ freq.presencas }}</p><p>Faltas: {{ freq.faltas }}</p>
+<p>Frequência: {{ freq.percentual }}%</p><p class="situacao {{ freq.situacao|slugify }}">Situação: {{ freq.situacao }}</p>{% endif %}{% endif %}{% endblock %}

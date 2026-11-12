@@ -1,0 +1,5 @@
+{% extends "frequencia/base.html" %}{% block h1 %}Cadastro de Turma{% endblock %}
+{% block conteudo %}<form method="post" class="inline">{% csrf_token %}
+<label>Nome <input name="nome"></label><label>Ano letivo <input name="ano_letivo"></label>
+<label>Turno <select name="turno">{% for t in turnos %}<option>{{ t }}</option>{% endfor %}</select></label>
+<button>Salvar</button></form>{% endblock %}

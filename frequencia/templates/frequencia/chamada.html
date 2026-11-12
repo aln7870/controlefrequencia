@@ -1,0 +1,7 @@
+{% extends "frequencia/base.html" %}{% block h1 %}Chamada — {{ turma.nome }}{% endblock %}
+{% block conteudo %}<form method="post">{% csrf_token %}
+<label>Data <input name="data" value="{{ hoje }}"></label>
+{% for a in alunos %}<div class="linha"><span class="nome">{{ a.nome }}</span> <label><input type="radio" name="presenca_{{ a.pk }}" value="P"> Presente</label>
+<label><input type="radio" name="presenca_{{ a.pk }}" value="A"> Ausente</label></div>{% endfor %}
+<button>Salvar chamada</button></form>
+<h2>Chamadas registradas</h2><ul id="chamadas">{% for c in chamadas %}<li><a href="/turmas/{{ turma.pk }}/chamada/{{ c.data|date:'Y-m-d' }}/editar/">{{ c.data|date:'d/m/Y' }}</a></li>{% endfor %}</ul>{% endblock %}

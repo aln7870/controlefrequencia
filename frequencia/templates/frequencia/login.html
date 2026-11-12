@@ -1,0 +1,5 @@
+{% extends "frequencia/base.html" %}{% block classe %}login{% endblock %}{% block h1 %}Login{% endblock %}
+{% block conteudo %}<form method="post">{% csrf_token %}
+<label>E-mail <input name="email" type="email"></label>
+<label>Senha <input name="senha" type="password"></label>
+<button>Entrar</button></form>{% endblock %}

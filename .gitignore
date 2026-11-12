@@ -218,3 +218,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Robot Framework (resultados dos testes)
+output.xml
+log.html
+report.html
+selenium-screenshot-*.png

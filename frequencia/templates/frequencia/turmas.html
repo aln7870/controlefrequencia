@@ -1,0 +1,2 @@
+{% extends "frequencia/base.html" %}{% block h1 %}Turmas{% endblock %}
+{% block conteudo %}<ul>{% for t in turmas %}<li class="turma"><a href="/turmas/{{ t.pk }}/">{{ t.nome }}</a> — {{ t.ano_letivo }} — {{ t.turno }}</li>{% empty %}<li>Nenhuma turma cadastrada</li>{% endfor %}</ul>{% endblock %}

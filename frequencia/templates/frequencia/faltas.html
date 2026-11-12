@@ -1,0 +1,5 @@
+{% extends "frequencia/base.html" %}{% block h1 %}Alunos com Excesso de Faltas{% endblock %}
+{% block conteudo %}<form method="post" class="inline">{% csrf_token %}<label>Turma <select name="turma">{% for t in turmas %}<option value="{{ t.pk }}">{{ t.nome }}</option>{% endfor %}</select></label>
+<button>Gerar lista</button></form>
+{% if gerou %}<h2>{{ turma.nome }} (mínimo {{ minimo }}%)</h2><ul>
+{% for aluno, pct in lista %}<li class="aluno-risco">{{ aluno.nome }} — {{ pct }}%</li>{% empty %}<li>Nenhum aluno abaixo da frequência mínima</li>{% endfor %}</ul>{% endif %}{% endblock %}

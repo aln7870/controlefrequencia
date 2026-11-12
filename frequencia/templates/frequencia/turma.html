@@ -1,0 +1,6 @@
+{% extends "frequencia/base.html" %}{% block h1 %}Turma {{ turma.nome }}{% endblock %}
+{% block conteudo %}<p>{{ turma.ano_letivo }} — {{ turma.turno }}</p>
+<h2>Alunos da turma</h2><ul>{% for a in alunos %}<li class="aluno-turma">{{ a.nome }}</li>{% empty %}<li>Nenhum aluno na turma</li>{% endfor %}</ul>
+<form method="post">{% csrf_token %}<label>Aluno <select name="aluno">{% for a in disponiveis %}<option value="{{ a.pk }}">{{ a.nome }}</option>{% endfor %}</select></label>
+<button>Adicionar à turma</button></form>
+<p><a href="/turmas/{{ turma.pk }}/chamada/">Fazer chamada</a></p>{% endblock %}

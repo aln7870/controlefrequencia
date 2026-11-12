@@ -1,0 +1,5 @@
+{% extends "frequencia/base.html" %}{% block h1 %}Editar chamada de {{ chamada.data|date:"d/m/Y" }} — {{ turma.nome }}{% endblock %}
+{% block conteudo %}<form method="post">{% csrf_token %}
+{% for a, presente in linhas %}<div class="linha"><span class="nome">{{ a.nome }}</span> <label><input type="radio" name="presenca_{{ a.pk }}" value="P"{% if presente is True %} checked{% endif %}> Presente</label>
+<label><input type="radio" name="presenca_{{ a.pk }}" value="A"{% if presente is False %} checked{% endif %}> Ausente</label></div>{% endfor %}
+<button>Salvar alterações</button></form>{% endblock %}

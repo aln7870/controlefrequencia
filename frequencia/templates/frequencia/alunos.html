@@ -1,0 +1,2 @@
+{% extends "frequencia/base.html" %}{% block h1 %}Alunos{% endblock %}
+{% block conteudo %}<ul>{% for a in alunos %}<li class="aluno">{{ a.nome }} — {{ a.matricula }}</li>{% empty %}<li>Nenhum aluno cadastrado</li>{% endfor %}</ul>{% endblock %}
