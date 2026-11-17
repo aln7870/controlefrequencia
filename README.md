@@ -1,6 +1,6 @@
 # Controle de Frequência Escolar
 
-Django com RF001 a RF008 e regras RN001 a RN004. Os cenários Gherkin do professor estão em
+Django com RF001 a RF010 e regras RN001 a RN005. Os cenários Gherkin do professor estão em
 `features/*.feature` (referência) e foram automatizados em Robot Framework + SeleniumLibrary.
 
 ## Rodar o sistema
@@ -14,7 +14,7 @@ Crie o usuário de uso próprio com `python manage.py createsuperuser` (o login 
 ## Rodar os testes (Selenium)
 Com o servidor ligado em outro terminal:
 ```
-robot frequencia/tests                                   # todos (CT001 a CT016), abre o Edge
+robot frequencia/tests                                   # todos (CT001 a CT020), abre o Edge
 robot --include CT009 frequencia/tests                   # um só
 robot --variable BROWSER:chrome frequencia/tests         # outro navegador
 robot --variable SPEED:0s frequencia/tests               # sem pausa entre os comandos

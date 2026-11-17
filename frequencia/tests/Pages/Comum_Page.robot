@@ -7,7 +7,8 @@ ${OPTIONS}     ${None}
 # por padrão usa o mesmo Python que está rodando o Robot (o do venv); troque com --variable PYTHON:caminho
 ${PYTHON}      ${{sys.executable}}
 
-&{PAGINAS}     Cadastro de Aluno=/alunos/novo/
+&{PAGINAS}     Lista de Alunos=/alunos/
+...            Cadastro de Aluno=/alunos/novo/
 ...            Cadastro de Turma=/turmas/nova/
 ...            Consultar Frequência=/frequencia/
 ...            Alunos com Excesso de Faltas=/faltas/

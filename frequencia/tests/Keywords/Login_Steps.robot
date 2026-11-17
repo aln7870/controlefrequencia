@@ -14,3 +14,20 @@ E deve exibir a mensagem de boas-vindas "${mensagem}"
 
 E deve permanecer na página de login
     Location Should Be    ${URL}/login/
+
+# CT019 e CT020 (sair do sistema)
+Quando clico no link "${texto}"
+    Click Link    ${texto}
+
+E deve exibir a tela de login
+    Wait Until Location Is    ${URL}/login/    timeout=10s
+
+Dado que realizei logout do sistema
+    Click Link    Sair
+    Wait Until Location Is    ${URL}/login/    timeout=10s
+
+Quando tento acessar a página "${nome}" pela URL
+    Go To    ${URL}${PAGINAS}[${nome}]
+
+Então o sistema deve redirecionar para a tela de login
+    Wait Until Location Is    ${URL}/login/    timeout=10s

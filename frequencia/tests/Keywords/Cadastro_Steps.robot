@@ -14,6 +14,10 @@ E o aluno "${nome}" não deve aparecer na lista de alunos
     Go To    ${URL}/alunos/
     Page Should Not Contain    ${nome}
 
+# CT017 e CT018 (excluir aluno)
+Quando clico no botão "Excluir" do aluno "${aluno}"
+    Click Button    xpath=//li[@class='aluno' and contains(.,'${aluno}')]//button[normalize-space()='Excluir']
+
 # CT005 e CT006 (turma)
 E selecionei o turno "${turno}"
     Select From List By Label    xpath=${SELECT_TURNO}    ${turno}

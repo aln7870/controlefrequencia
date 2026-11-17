@@ -36,8 +36,10 @@ def login_view(request):
     return render(request, "frequencia/login.html")
 
 
+# RF010 ---------------------------------------------------------------
 def sair(request):
     logout(request)
+    messages.success(request, "Você saiu do sistema")
     return redirect("login")
 
 
@@ -67,6 +69,19 @@ def cadastrar_aluno(request):
             return redirect("alunos")
         return redirect("aluno_novo")
     return render(request, "frequencia/aluno_form.html")
+
+
+# RF009 ---------------------------------------------------------------
+@login_obrigatorio
+def excluir_aluno(request, aluno_id):
+    aluno = get_object_or_404(Aluno, pk=aluno_id)
+    if request.method == "POST":
+        if aluno.registros.exists():  # RN005: preserva o histórico de frequência
+            messages.error(request, "Não é possível excluir um aluno com chamadas registradas")
+        else:
+            aluno.delete()
+            messages.success(request, "Aluno excluído com sucesso")
+    return redirect("alunos")
 
 
 # RF003 ---------------------------------------------------------------
