@@ -25,7 +25,7 @@ Os resultados ficam em `log.html` e `report.html`.
 alunos, turmas e chamadas do banco e recria o professor `carlos@escola.com` / `prof123`.
 Rode os testes num banco de desenvolvimento (se quiser guardar dados, copie o `db.sqlite3` antes).
 
-## Estrutura dos testes (mesmo padrão do ListaDeTarefas)
+## Estrutura dos testes
 - `frequencia/tests/CTxxx_*.robot`: um arquivo por caso de teste, escrito como o cenário Gherkin.
 - `frequencia/tests/Keywords/*_Steps.robot`: os passos (Dado/Quando/Então).
 - `frequencia/tests/Pages/*_Page.robot`: locators e variáveis.
